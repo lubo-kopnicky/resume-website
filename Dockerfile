@@ -1,29 +1,13 @@
-# Use a Node.js image
-FROM node:20-alpine
-
-# Set the working directory
+# Stage 1: Build the React app
+FROM node:18-alpine AS builder
 WORKDIR /app
-
-# Copy package.json and install all dependencies
-COPY package*.json ./
+COPY package.json .
+COPY package-lock.json .
 RUN npm install
-
-# Copy the rest of your app's source code
 COPY . .
-
-# Install a simple static file server
-RUN npm install -g serve
-
-# Run the production build
 RUN npm run build
 
-# Expose the port
-EXPOSE 3000
-
-# The command to run when the container starts
-CMD ["serve", "-s", "dist", "-p", "3000"]
-
-# Serve the static files with Nginx
+# Stage 2: Serve the static files with Nginx
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
