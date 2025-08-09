@@ -22,3 +22,9 @@ EXPOSE 3000
 
 # The command to run when the container starts
 CMD ["serve", "-s", "dist", "-p", "3000"]
+
+# Serve the static files with Nginx
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
