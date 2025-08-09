@@ -1,0 +1,91 @@
+/* Container for the whole page */
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  /* Dark background with subtle texture */
+  background-color: #1a1a1a;
+  color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  
+  /* Background animation for floating objects */
+  background-image:
+    radial-gradient(ellipse at 10% 20%, rgba(255, 255, 255, 0.05), transparent),
+    radial-gradient(ellipse at 80% 50%, rgba(255, 255, 255, 0.05), transparent),
+    linear-gradient(135deg, rgba(0, 255, 255, 0.03), transparent 50%),
+    linear-gradient(45deg, rgba(255, 0, 255, 0.03), transparent 50%);
+  background-size: 200vw 200vh;
+  animation: move-background 30s linear infinite;
+}
+
+/* Header styling */
+.landingHeader h1 {
+  font-size: 4rem;
+  color: #6B8E23;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(107, 142, 35, 0.5);
+}
+
+.landingHeader p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Button container */
+.buttonContainer {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+/* Button base styles */
+.landingButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Make buttons giant */
+  height: 80px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(107, 142, 35, 0.8);
+  border: 2px solid #6B8E23;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(107, 142, 35, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover and focus effects */
+.landingButton:hover,
+.landingButton:focus {
+  transform: scale(1.05); /* Grow on hover */
+  box-shadow: 0 0 25px rgba(107, 142, 35, 0.7), 0 0 40px rgba(107, 142, 35, 0.5);
+  background-color: #6B8E23; /* A bit brighter */
+}
+
+/* Under construction button styling */
+.underConstruction {
+  background-color: rgba(85, 85, 85, 0.6);
+  border-color: #555;
+  box-shadow: 0 0 10px rgba(85, 85, 85, 0.3);
+  cursor: not-allowed;
+}
+
+.underConstruction:hover,
+.underConstruction:focus {
+  transform: none; /* No hover effect on these buttons */
+  box-shadow: 0 0 15px rgba(85, 85, 85, 0.5);
+  background-color: rgba(85, 85, 85, 0.6);
+}
+
+/* Animation keyframes for the background */
+@keyframes move-background {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}

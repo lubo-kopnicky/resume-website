@@ -1,0 +1,19 @@
+.about-me-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #555;
+    background-color: #fff;
+  }
+  
+  .about-me-page h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-me-page p {
+    font-size: 1.2rem;
+  }
