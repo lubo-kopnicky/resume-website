@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: dev # This is the line that links the job to the 'dev' environment
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
